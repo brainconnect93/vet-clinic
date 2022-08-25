@@ -9,3 +9,11 @@ SELECT * from animals WHERE neutered = true;
 SELECT * from animals WHERE name != 'Gabumon';
 SELECT * from animals WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
 
+-- query and update animal tables
+
+BEGIN;
+UPDATE animals SET species ='unspecified';
+SELECT * FROM animals;
+ROLLBACK;
+
+SELECT * FROM animals;
