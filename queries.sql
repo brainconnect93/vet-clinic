@@ -60,14 +60,19 @@ SELECT * FROM animals;
 
 -- Write queries to answer the following questions:
     -- How many animals are there?
+SELECT count(*) FROM animals;
 
+-- How many animals have never tried to escape?
+SELECT count(*) FROM animals WHERE escape_attempts = 0;
 
+-- What is the average weight of animals?
+SELECT AVG(weight_kg) FROM animals;
 
+-- Who escapes the most, neutered or not neutered animals?
+SELECT MAX(escape_attempts) FROM animals WHERE neutered = 'true' OR 'false';
 
+-- What is the minimum and maximum weight of each type of animal?
+SELECT MIN(weight_kg), MAX(weight_kg) FROM animals;
 
-How many animals are there?
-How many animals have never tried to escape?
-What is the average weight of animals?
-Who escapes the most, neutered or not neutered animals?
-What is the minimum and maximum weight of each type of animal?
-What is the average number of escape attempts per animal type of those born between 1990 and 2000?
+-- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
+SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth BETWEEN '1990-01-10' AND '2000-12-31' GROUP BY species;
