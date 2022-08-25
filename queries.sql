@@ -30,3 +30,15 @@ COMMIT;
 SELECT * FROM animals;
 
 --  Inside a transaction delete all records in the animals table, then roll back the transaction.
+BEGIN;
+DELETE FROM animals;
+ROLLBACK;
+
+-- After the rollback verify if all records in the animals table still exists.
+SELECT * FROM animals;
+
+-- Inside a transaction:
+    -- Delete all animals born after Jan 1st, 2022.
+
+BEGIN;
+DELETE FROM animals WHERE date_of_birth > '2022-01-01';
