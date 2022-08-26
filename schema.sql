@@ -46,12 +46,32 @@ ALTER TABLE animals ADD COLUMN owner_id INT;
 ALTER TABLE animals ADD CONSTRAINT fk_animals_owners FOREIGN KEY (owner_id) REFERENCES owners(id);
 
 
+/* PROJECT DAY 4 - ADD "JOIN TABLE" FOR VISITS */
 -- Create a new table named vets
 
 CREATE TABLE vets (
     id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(250) NOT NULL,
     age INT NOT NULL,
-    date_of_graduation DATE NOT NULL;
+    date_of_graduation DATE NOT NULL,
     PRIMARY KEY(id)
+);
+
+-- Creating many-to-many relationship for vets and species 
+CREATE TABLE specializations (
+    species_id INT NOT NULL,
+    vets_id INT NOT NULL,
+    PRIMARY KEY(species_id, vets_id),
+    CONSTRAINT fk_specializations_species FOREIGN KEY (species_id) REFERENCES species(id),
+    CONSTRAINT fk_specializations_vets FOREIGN KEY (vets_id) REFERENCES vets(id)
+);
+
+-- Creating many-to-many relationship for animals and vets
+CREATE TABLE visits (
+    animals_id INT NOT NULL,
+    vets_id INT NOT NULL,
+    date_of_visit DATE NOT NULL,
+    PRIMARY KEY(animals_id, vets_id),
+    CONSTRAINT fk_visits_animals FOREIGN KEY (animals_id) REFERENCES  animals(id),
+    CONSTRAINT fk_visits_vets FOREIGN KEY (vets_id) REFERENCES vets(id)
 );
