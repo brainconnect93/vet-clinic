@@ -75,3 +75,6 @@ CREATE TABLE visits (
     CONSTRAINT fk_visits_animals FOREIGN KEY (animals_id) REFERENCES  animals(id),
     CONSTRAINT fk_visits_vets FOREIGN KEY (vets_id) REFERENCES vets(id)
 );
+
+ALTER TABLE owners ALTER COLUMN age DROP NOT NULL;
+
