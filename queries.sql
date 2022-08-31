@@ -172,9 +172,9 @@ GROUP BY species.name
 ORDER BY visits DESC;
 
 
-explain analyze SELECT COUNT(*) FROM visits where animals_id = 4;
 
 /* PROJECT - DATABASE PERFORMANCE AUDIT DAY 1 */
+explain analyze SELECT COUNT(*) FROM visits where animals_id = 4;
 
 -- before decreasing the execution time of the query.
 SELECT COUNT(*) FROM visits where animals_id = 4;
