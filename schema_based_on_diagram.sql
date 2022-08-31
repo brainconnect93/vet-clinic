@@ -28,3 +28,11 @@ CREATE TABLE invoices (
   PRIMARY KEY(id),
   CONSTRAINT fk_medical_history FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id) ON DELETE CASCADE
 );
+
+-- treatment table 
+CREATE TABLE treatments (
+  id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+  type VARCHAR(250) NOT NULL,
+  name VARCHAR(250) NOT NULL,
+  PRIMARY KEY(id)
+);
