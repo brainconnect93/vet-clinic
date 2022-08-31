@@ -174,6 +174,9 @@ ORDER BY visits DESC;
 
 explain analyze SELECT COUNT(*) FROM visits where animals_id = 4;
 
+/* PROJECT - DATABASE PERFORMANCE AUDIT DAY 1 */
+
+-- before decreasing the execution time of the query.
 SELECT COUNT(*) FROM visits where animals_id = 4;
 SELECT * FROM visits where vets_id = 2;
 SELECT * FROM owners where email = 'owner_18327@mail.com';

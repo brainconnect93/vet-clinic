@@ -76,5 +76,10 @@ CREATE TABLE visits (
     CONSTRAINT fk_visits_vets FOREIGN KEY (vets_id) REFERENCES vets(id)
 );
 
+-- remove the not null from the age column 
 ALTER TABLE owners ALTER COLUMN age DROP NOT NULL;
 
+-- before decreasing the execution time of the query.
+CREATE INDEX animals_id_index ON visits(animals_id);
+CREATE INDEX vets_id_index ON visits(vets_id);
+CREATE INDEX email_id_index ON owners(email);
