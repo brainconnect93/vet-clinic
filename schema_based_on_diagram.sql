@@ -17,3 +17,14 @@ CREATE TABLE medical_histories(
   PRIMARY KEY(id),
   CONSTRAINT fk_patient_constraint FOREIGN KEY(patient_id) REFERENCES patients(id) ON DELETE CASCADE
 );
+
+-- invoices table 
+CREATE TABLE invoices (
+  id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+  total_amount FLOAT(2) NOT NULL,
+  generated_at TIMESTAMP NOT NULL,
+  payed_at TIMESTAMP NOT NULL,
+  medical_history_id INT NOT NULL,
+  PRIMARY KEY(id),
+  CONSTRAINT fk_medical_history FOREIGN KEY(medical_history_id) REFERENCES medical_histories(id) ON DELETE CASCADE
+);
