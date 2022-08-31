@@ -49,3 +49,13 @@ CREATE TABLE invoice_items (
   FOREIGN KEY (invoice_id) REFERENCES invoices(id) ON DELETE CASCADE,
   FOREIGN KEY (treatment_id) REFERENCES treatment(id) ON DELETE CASCADE
 );
+
+-- many to many relationship between medical histories and treatements
+-- prescribed treatment table
+CREATE TABLE prescribed_treatment (
+  id INT NOT NULL GENERATED ALWAYS AS IDENTITY,
+  medical_history_id INT NOT NULL,
+  treatment_id INT NOT NULL,
+  FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id) ON DELETE CASCADE,
+  FOREIGN KEY (treatment_id) REFERENCES treatment(id) ON DELETE CASCADE
+);
