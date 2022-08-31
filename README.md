@@ -1,12 +1,10 @@
 [![](https://img.shields.io/badge/Microverse-Afolabi%20Akorede-blueviolet)](https://github.com/brainconnect93)
 
 # Vet Clinic Database
-
 > Vet Clinic is a relational database management web based application that tracks information about animals, their clinic visits and the details of the clinics employees who attended to them.
 
 # Schema Diagram
-
-<img src = "https://raw.githubusercontent.com/Felix45/vetclininc/develop/images/shema_erd.png">
+![Vet Clinic Schema Design](https://user-images.githubusercontent.com/78634841/187642631-b6040c4c-d7b6-4db0-ad6e-6b65c043f391.png)
 
 ## Getting Started
 
